@@ -3,31 +3,10 @@
   overflow-x: hidden;
 }
 
-
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-.bannerWrapper {
-  display: flex;
-  justify-content: center;
-
-}
-
-.bannerImg img {
-  width: 100%;
-}
-
-.banner {
-  width: 100vw;
-  direction: ltr;
-  /* overflow: visible; */
-}
-
-.swiper-pagination-bullet-active {
-  background-color: var(--primary) !important;
 }
 
 /* --- Balance Module css --- */

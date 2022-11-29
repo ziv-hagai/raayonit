@@ -17,24 +17,15 @@ import { Button } from "@material-ui/core";
 import { OutlinedInput } from "@mui/material";
 import AllCoupons from "./coupon/coupon";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/swiper.min.css'
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/modules/pagination/pagination.min.css'
-import 'swiper/modules/autoplay/autoplay.min.css'
-import 'swiper/modules/effect-fade/effect-fade.min.css'
-import { Autoplay, EffectFade, Pagination } from "swiper";
-
 // import ChatBot from "../chat/ChatBot";
 import Header from "../header/Header";
 import OnlyCategoryList from "../category/OnlyCategoryList";
 import CouponsList from "../couponsList";
 import VendorList from "./VendorList";
 import ClubRegistr from "./clubRegistr/ClubRegistr";
-import Art from "../../assets/images/banner.jpg";
-import Art2 from "../../assets/images/banner2.jpg";
-import "./dashboard.css";
-import BasicPagination from "./BasicPagination";
+import Art from "../../assets/images/lg_logo.jpg";
+import "./club.css";
+import Pagination from "./pagination";
 import OtherCategories from "./otherCategories/OtherCategories";
 import Search from "./Search";
 //icons
@@ -70,7 +61,7 @@ if (screenWidth > 991) {
   makeProductsPerPage = 12;
 }
 
-export default function Dashboard() {
+export default function Club() {
   const [products, setProducts] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
   const [BalanceTitleFont, setBalanceTitleFont] = useState("10vw");
@@ -260,39 +251,79 @@ export default function Dashboard() {
         <Header />
 
         <div className="container" ref={ref}>
-
-          <div className="bannerWrapper">
-            <div className="banner">
-              <Swiper
-                freeMode={true}
-                slidesPerView={1}
-                modules={[Pagination, EffectFade, Autoplay]}
-                pagination={{ clickable: true }}
-                autoplay={{
-                  delay: 3000,
-                }}
-                speed={3000}
-                effect={"fade"}
-                fadeEffect={{
-                  crossFade: true,
-                }}
-              >
-                <SwiperSlide>
-                  <div className="bannerImg">
-                    <img src={Art} />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="bannerImg">
-                    <img src={Art2} />
-                  </div>
-                </SwiperSlide>
-              </Swiper>
+          <div
+            className="balanceBox"
+            style={{
+              backgroundImage: "url(" + Art + ")",
+            }}
+          >
+            <div className="balanceBoxInner">
+              <h1 className="headTitle" style={{ fontSize: BalanceTitleFont }}>
+                {/* MallClub */}
+              </h1>
+              {/* <p className="balanceBoxTitle">{t("yourBalance")}</p> */}
+              <h6 className="balanceBoxprice">
+                שוברים דיגיטליים בקליק
+                {/* {user?.money?.toFixed(1) || 0} ₪ / */}
+                {/* {user?.credit?.toFixed(1) || 0} {t("e-credit")} */}
+              </h6>
             </div>
           </div>
-
           <Search />
+          {/* <div className="block-slider">
+            <div className="module-heading">
+              <OtherCategories slider={true} categories={otherCategoriesArr} />
 
+              <div
+                className="balanceBox"
+                style={{
+                  backgroundImage: "url(" + Art + ")",
+                }}
+              >
+                <div className="balanceBoxInner">
+                  <h1
+                    className="headTitle"
+                    style={{ fontSize: BalanceTitleFont }}
+                  >MallClub</h1>
+                  <p className="balanceBoxTitle">{t("yourBalance")}</p>
+                  <h6 className="balanceBoxprice">
+                    {user?.money?.toFixed(1) || 0} ₪ /
+                    {user?.credit?.toFixed(1) || 0} {t("e-credit")}
+                  </h6>
+                </div>
+              </div>
+
+              <div className="featured-product">
+                <div className="module-heading">
+                  <div className="row align-items-center">
+                    <div className="col-12">
+                      <h6 className="module-heading__title">
+                        {t("featuredCategories")}
+                      </h6>
+                    </div>
+                  </div>
+                </div>
+                <div className="allCategory">
+                  <OnlyCategoryList
+                    slider={true}
+                    categories={categories}
+                    divClassName="featuredProduct-box"
+                    h5ClassName="featuredProduct-box__title"
+                  />
+                </div>
+              </div>
+
+
+
+              <CouponsList />
+
+       
+            </div>
+
+            <VendorList isAllVendors={false} storesText={"stores"} />
+
+           
+          </div> */}
           <Tabs
             defaultSelectedIndex={0}
             className="categoriesSliderTabs"
@@ -325,7 +356,7 @@ export default function Dashboard() {
             <AllCoupons filterProducts={filterProducts} />
 
             {/* <ChatBot /> */}
-            <BasicPagination
+            <Pagination
               productsPerPage={productsPerPage}
               totalProducts={filterProducts.length}
               paginate={paginate}
