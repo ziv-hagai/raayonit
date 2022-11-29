@@ -16,6 +16,8 @@ import Wallets from "./components/wallets/Wallets";
 import Payment from "./components/wallets/Payment";
 import LoadMoney from "./components/wallets/LoadMoney";
 import CreaditCard from "./components/wallets/CreaditCard";
+import Club from "./components/club/Club";
+import Clubs from "./components/clubs/Clubs";
 import Dashboard from "./components/dashboard/Dashboard";
 import CategoryList from "./components/category/CategoryList";
 import Map from "./components/location/Map";
@@ -75,6 +77,8 @@ function App(props) {
         <Routes>
           <Route path="/header" element={<Header />} />
           <Route path="/" element={<Dashboard />} />
+          <Route path="/club" element={<Club />} />
+          <Route path="/clubs" element={<Clubs />} />
           {/* <Route path="/footer" element={<Footer />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
