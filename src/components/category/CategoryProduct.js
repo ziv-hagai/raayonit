@@ -7,7 +7,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
 import Header from "../header/Header";
-import Pagination from "../dashboard/pagination";
+import Pagination from "../dashboard/BasicPagination";
 import {
   getProductCategory,
   getProductsByCategoryId,
@@ -114,60 +114,60 @@ export default function CategoryProduct() {
             <ul className="product-Module">
               {currentFilterProducts.length > 0
                 ? currentFilterProducts.map((product) => {
-                    return (
-                      <>
-                        <li
-                          className="product-Module__list isLink"
-                          onClick={() => {
-                            // if (catItem.imagename === "booking") {
-                            //   navigate("/company", {
-                            //     state: { isBookingApp: true },
-                            //   });
-                            // }
-                            // if (
-                            //   location.state.featureCategory.name === t("gifts")
-                            // ) {
-                            //   navigate("/gift", {
-                            //     state: { isBookingApp: true },
-                            //   });
-                            // } else {
-                            navigate(`/product/${product.id}`, {
-                              state: { id: product.id },
-                            });
-                            // }
-                          }}
-                        >
-                          <div className="product-box">
-                            <div
-                              className="product-box__img"
-                              style={{
-                                backgroundImage: `url(${product.image})`,
-                              }}
-                            ></div>
-                            <div className="product-box__info">
-                              <div className="product-box__infoTop">
-                                <h6 className="product-box__brand">
-                                  {product.title}
-                                </h6>
-                                <span className="product-box__price">
-                                  {product?.price || 0}₪
-                                </span>
-                              </div>
-                              <h5 className="product-box__name">
-                                {/* 3 {t("boxSimple")} */}
-                              </h5>
+                  return (
+                    <>
+                      <li
+                        className="product-Module__list isLink"
+                        onClick={() => {
+                          // if (catItem.imagename === "booking") {
+                          //   navigate("/company", {
+                          //     state: { isBookingApp: true },
+                          //   });
+                          // }
+                          // if (
+                          //   location.state.featureCategory.name === t("gifts")
+                          // ) {
+                          //   navigate("/gift", {
+                          //     state: { isBookingApp: true },
+                          //   });
+                          // } else {
+                          navigate(`/product/${product.id}`, {
+                            state: { id: product.id },
+                          });
+                          // }
+                        }}
+                      >
+                        <div className="product-box">
+                          <div
+                            className="product-box__img"
+                            style={{
+                              backgroundImage: `url(${product.image})`,
+                            }}
+                          ></div>
+                          <div className="product-box__info">
+                            <div className="product-box__infoTop">
+                              <h6 className="product-box__brand">
+                                {product.title}
+                              </h6>
+                              <span className="product-box__price">
+                                {product?.price || 0}₪
+                              </span>
                             </div>
+                            <h5 className="product-box__name">
+                              {/* 3 {t("boxSimple")} */}
+                            </h5>
                           </div>
-                        </li>
-                      </>
-                    );
-                  })
+                        </div>
+                      </li>
+                    </>
+                  );
+                })
                 : t("No products")}
             </ul>
           ) : (
             t("Loading...")
           )}
-          <div style={{display: 'flex', justifyContent: 'center', margin: '0 0 50px'}} >
+          <div style={{ display: 'flex', justifyContent: 'center', margin: '0 0 50px' }} >
             <Pagination
               productsPerPage={productsPerPage}
               totalProducts={filterProducts.length}

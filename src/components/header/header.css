@@ -1,6 +1,6 @@
 .mainheader {
   padding: 12px 10px;
-  /* width: 100%; */
+  width: 100%;
 }
 
 .mainheader__btn {
@@ -96,6 +96,13 @@
 
 .headerLeft .MainMenu {
   overflow: initial;
+  display: flex;
+
+}
+
+.hiddenBtns {
+  display: flex;
+  justify-content: center;
 }
 
 .headerMainLogo {
@@ -753,11 +760,11 @@
 }
 
 .userBlock-img {
-  /* min-width: 10vh !important; */
-  /* position: relative; */
+  padding: 0 2%;
+
   right: 20px;
-  max-width: 50vh;
-  min-width: 50px
+  max-width: 100px;
+  width: 20%
 }
 
 .userBlock-img>img {

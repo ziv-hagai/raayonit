@@ -135,18 +135,20 @@ const Header = ({ isMap, mapSearch }) => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    if (newValue === 0) {
-      dispatch(setGetTabbingValue(newValue));
-      navigate("/");
-    }
-    if (newValue === 1) {
-      // navigate("/allvendors");
-      dispatch(setGetTabbingValue(newValue));
-    }
-    if (newValue === 2) {
-      dispatch(setGetTabbingValue(newValue));
-      // navigate("/categorylist");
-    }
+    dispatch(setGetTabbingValue(newValue));
+
+    // if (newValue === 0) {
+    //   dispatch(setGetTabbingValue(newValue));
+    //   // navigate("/");
+    // }
+    // if (newValue === 1) {
+    //   // navigate("/allvendors");
+    //   dispatch(setGetTabbingValue(newValue));
+    // }
+    // if (newValue === 2) {
+    //   dispatch(setGetTabbingValue(newValue));
+    //   // navigate("/categorylist");
+    // }
   };
 
   const closeMobileMenu = () => setClick(false);
@@ -177,7 +179,8 @@ const Header = ({ isMap, mapSearch }) => {
       <div className={isMenuOpen ? "mainheader active-menu" : "mainheader"}>
         <div className="container-fluid">
           <div className="row align-items-center">
-            <div className="col-lg-3 col-2">
+            {/* <div className="col-lg-3 col-2"> */}
+            <div className="col-7">
               <div className="headerLeft">
                 <span
                   className="userBlock-img"
@@ -189,38 +192,58 @@ const Header = ({ isMap, mapSearch }) => {
                 >
                   <img src={Logo} alt="img" className="img-fluid" />
                 </span>
-
-                <Tabs
-                  value={value}
-                  indicatorColor="primary"
-                  textColor="primary"
-                  onChange={handleChange}
-                  aria-label="disabled tabs example"
-                  className="MainMenu"
-                >
-                  <Tab
-                    label={t("home")}
-                    onClick={() => {
-                      navigate("/");
-                    }}
-                  />
-                  <Tab
-                    label={t("about")}
-                    onClick={() => {
-                      // navigate("/allvendors");
-                    }}
-                  />
-                  <Tab
-                    label={t("terms")}
-                    onClick={() => {
-                      // navigate("/categorylist");
-                    }}
-                  />
-                </Tabs>
+                <div className="MainMenu">
+                  <Tabs
+                    value={value}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    onChange={handleChange}
+                    aria-label="disabled tabs example"
+                  >
+                    <Tab
+                      label={t("home")}
+                      onClick={() => {
+                        navigate("/");
+                      }}
+                    />
+                    <Tab
+                      label={t("about")}
+                      onClick={() => {
+                        // navigate("/allvendors");
+                      }}
+                    />
+                    <Tab
+                      label={t("terms")}
+                      onClick={() => {
+                        // navigate("/categorylist");
+                      }}
+                    />
+                    <Tab
+                      label={"מועדונים"}
+                      onClick={() => { navigate("/clubs") }}
+                    />
+                  </Tabs>
+                  <Button
+                    variant="outlined"
+                    sx={{ m: 1, lineHeight: "14px", }}
+                    size="small"
+                  >
+                    {"לקוח פרטי"}
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    sx={{ m: 1, lineHeight: "14px", }}
+                  >
+                    {"לקוח עסקי"}
+                  </Button>
+                </div>
               </div>
             </div>
 
-            <div className="col-lg-9 col-10 text-right">
+
+            {/* <div className="col-lg-9 col-10 text-right"> */}
+            <div className="col-5 text-right">
               <div className="headerRight">
                 {/* <Button
                   className="dropBtn"
@@ -376,7 +399,27 @@ const Header = ({ isMap, mapSearch }) => {
                         // navigate("/categorylist");
                       }}
                     />
+                    <Tab
+                      label={"מועדונים"}
+                      onClick={() => { navigate("/clubs") }}
+                    />
                   </Tabs>
+                  <div className="hiddenBtns">
+                    <Button
+                      variant="outlined"
+                      sx={{ m: 1, lineHeight: "14px", }}
+                      size="small"
+                    >
+                      {"לקוח פרטי"}
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      sx={{ m: 1, lineHeight: "14px", }}
+                    >
+                      {"לקוח עסקי"}
+                    </Button>
+                  </div>
                 </div>
               </div>
             </div>
